@@ -10,7 +10,7 @@ export default function Banner() {
         top: 0,
         left: 0,
         zIndex: 1000,
-        padding: '25px 0px 20px 0px',
+        padding: '15px 0px',
     }
     const navStyle = {
         display: 'flex',
@@ -25,42 +25,90 @@ export default function Banner() {
         fontSize: '18px',
         transition: 'color 0.3s ease'
     }
-    const linkHoverStyle = {
-        color: '#ff6347'
+    const buttonStyle = {
+        backgroundColor: 'transparent',
+        height: '50px',
+        border: '0.5px solid white',
+        borderRadius: '15px',
+        padding: '10px 15px',
+        color: 'white',
+        borderColor: 'white',
+        fontSize: '18px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease, color 0.3s ease'
+    }
+    const buttonHoverStyle = {
+        color: '#ff6347',
+        borderColor: '#ff6347'
+    }
+    const spanStyle = {
+        pointerEvents: 'none'
     }
 
     return (
         <div style={bannerStyle}>
-            <nav style={navStyle}>
-                <Link
-                    to="/"
-                    style={linkStyle}
-                    onMouseOver={(e) => e.target.style.color = linkHoverStyle.color}
-                    onMouseOut={(e) => e.target.style.color = linkStyle.color}
+        <nav style={navStyle}>
+            <Link to="/" style={linkStyle}>
+                <button
+                    style={buttonStyle}
+                    onMouseOver={(e) => {
+                        e.target.style.color = buttonHoverStyle.color
+                        e.target.style.borderColor = buttonHoverStyle.borderColor
+                    }}
+                    onMouseOut={(e) => {
+                        e.target.style.color = buttonStyle.color
+                        e.target.style.borderColor = buttonStyle.borderColor
+                    }}
                 >
-                    <span class="material-icons">
-                        home
-                    </span>
-                </Link>
-                <Link to="/chat" style={linkStyle}
-                    onMouseOver={(e) => e.target.style.color = linkHoverStyle.color}
-                    onMouseOut={(e) => e.target.style.color = linkStyle.color}
+                    <span className="material-icons" style={spanStyle}>home</span>
+                </button>
+            </Link>
+            <Link to="/chat" style={linkStyle}>
+                <button
+                    style={buttonStyle}
+                    onMouseOver={(e) => {
+                        e.target.style.color = buttonHoverStyle.color
+                        e.target.style.borderColor = buttonHoverStyle.borderColor
+                    }}
+                    onMouseOut={(e) => {
+                        e.target.style.color = buttonStyle.color
+                        e.target.style.borderColor = buttonStyle.borderColor
+                    }}
                 >
                     Chat
-                </Link>
-                <Link to="/models" style={linkStyle}
-                    onMouseOver={(e) => e.target.style.color = linkHoverStyle.color}
-                    onMouseOut={(e) => e.target.style.color = linkStyle.color}
+                </button>
+            </Link>
+            <Link to="/models" style={linkStyle}>
+                <button
+                    style={buttonStyle}
+                    onMouseOver={(e) => {
+                        e.target.style.color = buttonHoverStyle.color
+                        e.target.style.borderColor = buttonHoverStyle.borderColor
+                    }}
+                    onMouseOut={(e) => {
+                        e.target.style.color = buttonStyle.color
+                        e.target.style.borderColor = buttonStyle.borderColor
+                    }}
                 >
                     Models
-                </Link>
-                <Link to="/about" style={linkStyle}
-                    onMouseOver={(e) => e.target.style.color = linkHoverStyle.color}
-                    onMouseOut={(e) => e.target.style.color = linkStyle.color}
+                </button>
+            </Link>
+            <Link to="/about" style={linkStyle}>
+                <button
+                    style={buttonStyle}
+                    onMouseOver={(e) => {
+                        e.target.style.color = buttonHoverStyle.color
+                        e.target.style.borderColor = buttonHoverStyle.borderColor
+                    }}
+                    onMouseOut={(e) => {
+                        e.target.style.color = buttonStyle.color
+                        e.target.style.borderColor = buttonStyle.borderColor
+                    }}
                 >
                     About
-                </Link>
-            </nav>
-        </div>
+                </button>
+            </Link>
+        </nav>
+    </div>
     )
 }
