@@ -30,7 +30,7 @@ export default function Banner() {
         height: '50px',
         border: '0.5px solid white',
         borderRadius: '15px',
-        padding: '10px 15px',
+        padding: '10px 20px',
         color: 'white',
         borderColor: 'white',
         fontSize: '18px',
