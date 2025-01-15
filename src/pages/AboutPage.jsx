@@ -15,7 +15,7 @@ export default function AboutPage() {
   return (
     <>
       <div style={divStyle}>
-        <h1>About Page</h1>
+        <h1>About</h1>
         <p>Code Hydra is a multi-model coding assistant platform.</p>
       </div>
       <h3 style={h3Style}>Built by Gavin Hungaski</h3>
