@@ -4,7 +4,6 @@ export default function AboutPage() {
     position: 'relative',
     width: '100vw',
   }
-
   const h3Style = {
     position: 'absolute',
     bottom: '0',
