@@ -8,7 +8,7 @@ export default function ChatPage() {
 
   return (
     <div style={divStyle}>
-      <h1>Chat Page</h1>
+      <div>Current Model: Qwen/Qwen2.5-Coder-32B-Instruct</div>
       <MessageWindow />
     </div>
   )
