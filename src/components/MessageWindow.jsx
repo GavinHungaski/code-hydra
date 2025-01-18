@@ -25,7 +25,8 @@ export default function MessageWindow() {
 
     const handleAsk = async () => {
         const questionText = questionRef.current.value 
-        response = await loadModel('gpt-2', questionText, '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')
+        let response = await loadModel('Qwen/Qwen2.5-Coder-32B-Instruct', questionText)
+        console.log(response)
         handleAppendText(response)
     }
 

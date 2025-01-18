@@ -1,30 +1,24 @@
-async function loadModel(model_name, prompt, apiToken) {
-    try {
-        const response = await fetch(`https://api-inference.huggingface.co/models/${model_name}`, {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${apiToken}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                inputs: prompt,
-                parameters: {
-                    max_length: 100,
-                },
-            }),
-        })
+import { HfInference } from "@huggingface/inference"
 
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status} ${response.statusText}`)
-        }
+async function loadModel(model_name, prompt) {
+  if (!model_name || !prompt) {
+    throw new Error("Model name and prompt are required")
+  }
 
-        const data = await response.json()
-        console.log(data)
-        return data
-    } catch (error) {
-        console.error("Failed to load model:", error)
-        throw error
-    }
+  try {
+    const inference = new HfInference("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")
+    const response = await inference.textGeneration({
+      model: model_name,
+      inputs: prompt,
+    })
+
+    const data = await response
+
+    return data['generated_text']
+  } catch (error) {
+    console.error(`Failed to load model ${model_name} with prompt ${prompt}:`, error)
+    throw error
+  }
 }
 
 export default loadModel
