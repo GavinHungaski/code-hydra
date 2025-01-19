@@ -42,11 +42,7 @@ export default function MessageWindow() {
                     }
                 }}
             >
-                {isLoading ? (
-                    'Loading...'
-                ) : (
-                    'Ask'
-                )}
+                {isLoading ? ('Loading...') : ('Ask')}
             </button>
         </>
     )
