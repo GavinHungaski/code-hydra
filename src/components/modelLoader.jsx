@@ -6,7 +6,12 @@ async function loadModel(model_name, prompt) {
   }
 
   try {
-    const inference = new HfInference("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")
+    const api_key = process.env.HF_TOKEN
+    if (!api_key) {
+      throw new Error("Hugging Face API token is required")
+    }
+
+    const inference = new HfInference(api_key)
     const response = await inference.textGeneration({
       model: model_name,
       inputs: prompt,
