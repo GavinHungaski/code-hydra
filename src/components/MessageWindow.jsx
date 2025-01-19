@@ -1,35 +1,7 @@
 import React, { useState, useRef } from 'react'
 import loadModel from './modelLoader'
+import * as styles from './MessageWindowCSS'
 
-const text_inputStyle = {
-    width: '90vw',
-    height: '5vh',
-    resize: 'none',
-    marginTop: '20px',
-}
-const chat_outputStyle = {
-    width: '90vw',
-    height: '30vh',
-    resize: 'none',
-    overflow: 'auto',
-    marginTop: '20px',
-}
-const buttonStyle = {
-    backgroundColor: '#333',
-    height: '50px',
-    border: '0.5px solid white',
-    borderRadius: '15px',
-    padding: '10px 20px',
-    color: 'white',
-    borderColor: 'white',
-    fontSize: '18px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease, color 0.3s ease'
-}
-const buttonHoverStyle = {
-    color: '#ff6347',
-    borderColor: '#ff6347'
-}
 
 export default function MessageWindow() {
     const [text, setText] = useState('')
@@ -52,18 +24,22 @@ export default function MessageWindow() {
     return (
         <>
             <div>
-                <textarea ref={questionRef} style={text_inputStyle} placeholder="Question"></textarea>
-                <textarea style={chat_outputStyle} readOnly value={text}></textarea>
+                <textarea ref={questionRef} style={styles.text_inputStyle} placeholder="Question"></textarea>
+                <textarea style={styles.chat_outputStyle} readOnly value={text}></textarea>
             </div>
             <button onClick={handleAsk} disabled={isLoading}
-                style={buttonStyle}
+                style={isLoading ? styles.buttonDisabledStyle : styles.buttonStyle}
                 onMouseOver={(e) => {
-                    e.target.style.color = buttonHoverStyle.color
-                    e.target.style.borderColor = buttonHoverStyle.borderColor
+                    if (!isLoading) {
+                        e.target.style.color = styles.buttonHoverStyle.color
+                        e.target.style.borderColor = styles.buttonHoverStyle.borderColor
+                    }
                 }}
                 onMouseOut={(e) => {
-                    e.target.style.color = buttonStyle.color
-                    e.target.style.borderColor = buttonStyle.borderColor
+                    if (!isLoading) {
+                        e.target.style.color = styles.buttonStyle.color
+                        e.target.style.borderColor = styles.buttonStyle.borderColor
+                    }
                 }}
             >
                 {isLoading ? (
