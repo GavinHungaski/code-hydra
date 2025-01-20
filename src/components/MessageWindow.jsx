@@ -23,27 +23,27 @@ export default function MessageWindow() {
 
     return (
         <>
-            <div>
+            <div style={styles.divStyle}>
                 <textarea ref={questionRef} style={styles.text_inputStyle} placeholder="Question"></textarea>
-                <textarea style={styles.chat_outputStyle} readOnly value={text}></textarea>
+                <button onClick={handleAsk} disabled={isLoading}
+                    style={isLoading ? styles.buttonDisabledStyle : styles.buttonStyle}
+                    onMouseOver={(e) => {
+                        if (!isLoading) {
+                            e.target.style.color = styles.buttonHoverStyle.color
+                            e.target.style.borderColor = styles.buttonHoverStyle.borderColor
+                        }
+                    }}
+                    onMouseOut={(e) => {
+                        if (!isLoading) {
+                            e.target.style.color = styles.buttonStyle.color
+                            e.target.style.borderColor = styles.buttonStyle.borderColor
+                        }
+                    }}
+                >
+                    {isLoading ? ('Loading...') : ('Ask')}
+                </button>
             </div>
-            <button onClick={handleAsk} disabled={isLoading}
-                style={isLoading ? styles.buttonDisabledStyle : styles.buttonStyle}
-                onMouseOver={(e) => {
-                    if (!isLoading) {
-                        e.target.style.color = styles.buttonHoverStyle.color
-                        e.target.style.borderColor = styles.buttonHoverStyle.borderColor
-                    }
-                }}
-                onMouseOut={(e) => {
-                    if (!isLoading) {
-                        e.target.style.color = styles.buttonStyle.color
-                        e.target.style.borderColor = styles.buttonStyle.borderColor
-                    }
-                }}
-            >
-                {isLoading ? ('Loading...') : ('Ask')}
-            </button>
+            <textarea style={styles.chat_outputStyle} readOnly value={text}></textarea>
         </>
     )
 }

@@ -1,9 +1,9 @@
 const text_inputStyle = {
     width: '90vw',
-    height: '5vh',
     resize: 'none',
     marginTop: '20px',
 }
+
 const chat_outputStyle = {
     width: '90vw',
     height: '30vh',
@@ -11,6 +11,16 @@ const chat_outputStyle = {
     overflow: 'auto',
     marginTop: '20px',
 }
+
+const divStyle = {  
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '90vw',
+    margin: '0 auto',
+}
+
 const buttonStyle = {
     backgroundColor: '#333',
     height: '50px',
@@ -23,10 +33,12 @@ const buttonStyle = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease, color 0.3s ease'
 }
+
 const buttonHoverStyle = {
     color: '#ff6347',
     borderColor: '#ff6347'
 }
+
 const buttonDisabledStyle = {
     backgroundColor: '#555',
     color: '#888',
@@ -39,5 +51,6 @@ export {
     chat_outputStyle,
     buttonStyle,
     buttonHoverStyle,
-    buttonDisabledStyle
+    buttonDisabledStyle,
+    divStyle,
 }

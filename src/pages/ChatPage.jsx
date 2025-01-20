@@ -1,4 +1,5 @@
 import MessageWindow from "../components/MessageWindow"
+import ModelPicker from "../components/ModelPicker"
 
 export default function ChatPage() {
   const divStyle = {
@@ -8,7 +9,7 @@ export default function ChatPage() {
 
   return (
     <div style={divStyle}>
-      <div>Current Model: Qwen/Qwen2.5-Coder-32B-Instruct</div>
+      <ModelPicker />
       <MessageWindow />
     </div>
   )
