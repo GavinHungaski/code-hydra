@@ -22,7 +22,7 @@ export default function MessageWindow() {
     }
 
     return (
-        <>
+        <div style={styles.container}>
             <div style={styles.divStyle}>
                 <textarea ref={questionRef} style={styles.text_inputStyle} placeholder="Question"></textarea>
                 <button onClick={handleAsk} disabled={isLoading}
@@ -44,6 +44,6 @@ export default function MessageWindow() {
                 </button>
             </div>
             <textarea style={styles.chat_outputStyle} readOnly value={text}></textarea>
-        </>
+        </div>
     )
 }

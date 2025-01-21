@@ -7,7 +7,7 @@ const text_inputStyle = {
 
 const chat_outputStyle = {
     width: '90vw',
-    height: '30vh',
+    height: '100%',
     resize: 'none',
     overflow: 'auto',
     margin: '20px auto',
@@ -21,6 +21,12 @@ const divStyle = {
     justifyContent: 'center',
     width: '90vw',
     margin: '0 auto',
+}
+
+const container = {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '70vh',
 }
 
 const buttonStyle = {
@@ -56,4 +62,5 @@ export {
     buttonHoverStyle,
     buttonDisabledStyle,
     divStyle,
+    container,
 }
