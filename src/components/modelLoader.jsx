@@ -17,9 +17,7 @@ async function loadModel(model_name, prompt) {
       inputs: prompt,
     })
 
-    const data = await response
-
-    return data['generated_text']
+    return response['generated_text']
   } catch (error) {
     console.error(`Failed to load model ${model_name} with prompt ${prompt}:`, error)
     throw error
