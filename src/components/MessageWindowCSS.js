@@ -3,6 +3,8 @@ const text_inputStyle = {
     height: '50px',
     resize: 'none',
     borderRadius: '15px',
+    color: '#ADD8E6',
+    fontSize: '16px',
 }
 
 const chat_outputStyle = {
@@ -12,6 +14,8 @@ const chat_outputStyle = {
     overflow: 'auto',
     margin: '20px auto',
     borderRadius: '15px',
+    color: '#ADD8E6',
+    fontSize: '16px',
 }
 
 const divStyle = {  
