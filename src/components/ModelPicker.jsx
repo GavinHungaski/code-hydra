@@ -1,9 +1,10 @@
 
 const containerStyle = {
     border: '1px solid white',
+    borderRadius: '30px',
     width: '50vw',
     padding: '1rem',
-    margin:'0 auto',
+    margin:'0px auto 20px auto',
 }
 
 export default function ModelPicker() {

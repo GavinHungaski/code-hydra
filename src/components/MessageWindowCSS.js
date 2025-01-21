@@ -1,7 +1,8 @@
 const text_inputStyle = {
-    width: '90vw',
+    width: '100%',
+    height: '50px',
     resize: 'none',
-    marginTop: '20px',
+    borderRadius: '15px',
 }
 
 const chat_outputStyle = {
@@ -9,7 +10,8 @@ const chat_outputStyle = {
     height: '30vh',
     resize: 'none',
     overflow: 'auto',
-    marginTop: '20px',
+    margin: '20px auto',
+    borderRadius: '15px',
 }
 
 const divStyle = {  
@@ -24,6 +26,7 @@ const divStyle = {
 const buttonStyle = {
     backgroundColor: '#333',
     height: '50px',
+    width: '15%',
     border: '0.5px solid white',
     borderRadius: '15px',
     padding: '10px 20px',
@@ -36,7 +39,7 @@ const buttonStyle = {
 
 const buttonHoverStyle = {
     color: '#ff6347',
-    borderColor: '#ff6347'
+    borderColor: '#ff6347',
 }
 
 const buttonDisabledStyle = {
