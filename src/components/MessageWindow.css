@@ -1,0 +1,38 @@
+textarea {
+    width: 100%;
+    height: 4rem;
+    resize: none;
+    border-radius: 15px;
+    color: #ADD8E6;
+    font-size: 16px;
+}
+
+.chat-output {
+    width: 90vw;
+    height: 100%;
+    overflow: auto;
+    margin: 20px auto;
+    border: 1px solid #ADD8E6;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+button:hover {
+    color: #ff6347;
+    border-color: #ff6347;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+}

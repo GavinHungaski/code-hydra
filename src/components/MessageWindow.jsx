@@ -1,12 +1,32 @@
 import React, { useState, useRef } from 'react'
 import loadModel from './modelLoader'
-import * as styles from './MessageWindowCSS'
+import './MessageWindow.css'
+
+const buttonStyle = {
+    backgroundColor: '#333',
+    height: '50px',
+    width: '15%',
+    border: '0.5px solid white',
+    borderRadius: '15px',
+    padding: '10px 20px',
+    color: 'white',
+    borderColor: 'white',
+    fontSize: '18px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease, color 0.3s ease'
+}
+const buttonDisabledStyle = {
+    backgroundColor: '#555',
+    color: '#888',
+    borderColor: '#888',
+    cursor: 'not-allowed'
+}
 
 export default function MessageWindow() {
     const [messages, setMessages] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const questionRef = useRef(null)
-
+    
     const appendMessage = (message, color) => {
         setMessages(prevMessages => [...prevMessages, { text: message, color }])
     }
@@ -21,7 +41,13 @@ export default function MessageWindow() {
         
         appendMessage(`You: ${questionText}`, nextColor)
         
-        let response = await loadModel('Qwen/Qwen2.5-Coder-32B-Instruct', questionText)
+        let response = ""
+        if (questionText == "") {
+            response = "Please ask a question!"
+        } else {
+            response = await loadModel('Qwen/Qwen2.5-Coder-32B-Instruct', questionText)
+        }
+        
         console.log(response)
         setIsLoading(false)
         
@@ -29,28 +55,14 @@ export default function MessageWindow() {
     }
 
     return (
-        <div style={styles.container}>
-            <div style={styles.divStyle}>
-                <textarea ref={questionRef} style={styles.text_inputStyle} placeholder="Question"></textarea>
-                <button onClick={handleAsk} disabled={isLoading}
-                    style={isLoading ? styles.buttonDisabledStyle : styles.buttonStyle}
-                    onMouseOver={(e) => {
-                        if (!isLoading) {
-                            e.target.style.color = styles.buttonHoverStyle.color
-                            e.target.style.borderColor = styles.buttonHoverStyle.borderColor
-                        }
-                    }}
-                    onMouseOut={(e) => {
-                        if (!isLoading) {
-                            e.target.style.color = styles.buttonStyle.color
-                            e.target.style.borderColor = styles.buttonStyle.borderColor
-                        }
-                    }}
-                >
+        <div class="container">
+            <div class="input-container">
+                <textarea ref={questionRef} placeholder="Question"></textarea>
+                <button onClick={handleAsk} disabled={isLoading} style={isLoading ? buttonDisabledStyle : buttonStyle}>
                     {isLoading ? ('Loading...') : ('Ask')}
                 </button>
             </div>
-            <div style={styles.chat_outputStyle}>
+            <div class="chat-output">
                 {messages.map((msg, index) => (
                     <div key={index} style={{ color: msg.color }}>
                         {msg.text}
