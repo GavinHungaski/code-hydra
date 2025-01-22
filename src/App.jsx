@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Banner from './components/Banner.jsx'
+import Banner from './components/Banner/Banner.jsx'
 import ChatPage from './pages/ChatPage.jsx'
 import ModelsPage from './pages/ModelsPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'

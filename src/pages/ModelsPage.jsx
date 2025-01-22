@@ -1,4 +1,4 @@
-import ModelCard from '../components/ModelCard'
+import ModelCard from '../components/ModelCard/ModelCard.jsx'
 
 export default function ModelsPage() {
     const container = {

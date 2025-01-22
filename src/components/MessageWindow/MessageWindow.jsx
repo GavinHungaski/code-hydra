@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import loadModel from './modelLoader'
+import loadModel from '../../functions/modelLoader'
 import './MessageWindow.css'
 
 const buttonStyle = {

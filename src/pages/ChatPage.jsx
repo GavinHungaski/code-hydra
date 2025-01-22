@@ -1,5 +1,5 @@
-import MessageWindow from "../components/MessageWindow"
-import ModelPicker from "../components/ModelPicker"
+import MessageWindow from "../components/MessageWindow/MessageWindow.jsx"
+import ModelPicker from "../components/ModelPicker/ModelPicker.jsx"
 
 export default function ChatPage() {
   const divStyle = {
