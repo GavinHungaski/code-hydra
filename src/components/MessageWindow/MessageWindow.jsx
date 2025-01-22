@@ -4,7 +4,7 @@ import './MessageWindow.css'
 
 const buttonStyle = {
     backgroundColor: '#333',
-    height: '50px',
+    height: '4rem',
     width: '15%',
     border: '0.5px solid white',
     borderRadius: '15px',
@@ -65,10 +65,12 @@ export default function MessageWindow() {
                 <button onClick={handleAsk} disabled={isLoading}
                     style={isLoading ? buttonDisabledStyle : buttonStyle}
                     onMouseEnter={(e) => {
-                        e.target.style = buttonStyleHover
+                        e.target.style.color = buttonStyleHover.color
+                        e.target.style.borderColor = buttonStyleHover.borderColor
                     }}
                     onMouseLeave={(e) => {
-                        e.target.style = buttonStyleHover
+                        e.target.style.color = buttonStyle.color
+                        e.target.style.borderColor = buttonStyle.borderColor
                     }}
                 >
                     {isLoading ? ('Loading...') : ('Ask')}

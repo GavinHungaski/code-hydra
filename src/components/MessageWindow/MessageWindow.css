@@ -26,11 +26,6 @@ textarea {
     margin: 0 auto;
 }
 
-button:hover {
-    color: #ff6347;
-    border-color: #ff6347;
-}
-
 .container {
     display: flex;
     flex-direction: column;
