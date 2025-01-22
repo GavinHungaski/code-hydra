@@ -14,7 +14,7 @@ export default function ModelCard(props) {
                 </p>
                 <a href={props.link} target='_blank'>
                     <button class="card-button">
-                        Read More...
+                        See More...
                     </button>
                 </a>
             </div>
