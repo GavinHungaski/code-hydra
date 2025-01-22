@@ -22,7 +22,7 @@ export default function ModelsPage() {
                 link={'https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct'}
             />
             <ModelCard 
-                img={'/deepseek-icon.png'}
+                img={'deepseek-icon.png'}
                 title={'DeepSeek-Coder-V2-Instruct'}
                 description={'We present DeepSeek-Coder-V2, an open-source Mixture-of-Experts (MoE) code language model that achieves performance comparable to GPT4-Turbo in code-specific tasks. Specifically, DeepSeek-Coder-V2 is further pre-trained from an intermediate checkpoint of DeepSeek-V2 with additional 6 trillion tokens.'}
                 link={'https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct'}
