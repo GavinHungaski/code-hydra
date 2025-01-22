@@ -1,0 +1,25 @@
+.picker-container {
+    border: 2px solid #36454F;
+    color: black;
+    border-radius: 15px;
+    width: 20rem;
+    margin: 0 auto 20px auto;
+    background-color: #C0C0C0;
+}
+
+select {
+    margin: 10px auto 20px auto;
+    height: 25%;
+    width: 85%;
+    border-radius: 5px;
+}
+
+h2 {
+    margin: 10px auto;
+}
+
+hr {
+    width: 90%;
+    margin: 0 auto;
+    color: black;
+}
