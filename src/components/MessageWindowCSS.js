@@ -10,11 +10,10 @@ const text_inputStyle = {
 const chat_outputStyle = {
     width: '90vw',
     height: '100%',
-    resize: 'none',
     overflow: 'auto',
     margin: '20px auto',
+    border: '1px solid #ADD8E6',
     borderRadius: '15px',
-    color: '#ADD8E6',
     fontSize: '16px',
 }
 

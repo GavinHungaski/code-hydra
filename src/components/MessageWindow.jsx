@@ -2,23 +2,30 @@ import React, { useState, useRef } from 'react'
 import loadModel from './modelLoader'
 import * as styles from './MessageWindowCSS'
 
-
 export default function MessageWindow() {
-    const [text, setText] = useState('')
+    const [messages, setMessages] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const questionRef = useRef(null)
 
-    const handleAppendText = (message) => {
-        setText(prevText => prevText + message + '\n')
+    const appendMessage = (message, color) => {
+        setMessages(prevMessages => [...prevMessages, { text: message, color }])
     }
 
     const handleAsk = async () => {
         setIsLoading(true)
         const questionText = questionRef.current.value 
+        questionRef.current.value = ''
+        
+        const lastColor = messages.length > 0 ? messages[messages.length - 1].color : '#ADD8E6'
+        const nextColor = lastColor === '#ADD8E6' ? 'white' : '#ADD8E6'
+        
+        appendMessage(`You: ${questionText}`, nextColor)
+        
         let response = await loadModel('Qwen/Qwen2.5-Coder-32B-Instruct', questionText)
         console.log(response)
         setIsLoading(false)
-        handleAppendText(response)
+        
+        appendMessage(`Bot: ${response}`, nextColor === '#ADD8E6' ? 'white' : '#ADD8E6')
     }
 
     return (
@@ -43,7 +50,13 @@ export default function MessageWindow() {
                     {isLoading ? ('Loading...') : ('Ask')}
                 </button>
             </div>
-            <textarea style={styles.chat_outputStyle} readOnly value={text}></textarea>
+            <div style={styles.chat_outputStyle}>
+                {messages.map((msg, index) => (
+                    <div key={index} style={{ color: msg.color }}>
+                        {msg.text}
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
