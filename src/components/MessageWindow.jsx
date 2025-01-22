@@ -15,6 +15,10 @@ const buttonStyle = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease, color 0.3s ease'
 }
+const buttonStyleHover = {
+    color: '#ff6347',
+    borderColor: '#ff6347',
+}
 const buttonDisabledStyle = {
     backgroundColor: '#555',
     color: '#888',
@@ -26,7 +30,7 @@ export default function MessageWindow() {
     const [messages, setMessages] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const questionRef = useRef(null)
-    
+
     const appendMessage = (message, color) => {
         setMessages(prevMessages => [...prevMessages, { text: message, color }])
     }
@@ -58,7 +62,15 @@ export default function MessageWindow() {
         <div class="container">
             <div class="input-container">
                 <textarea ref={questionRef} placeholder="Question"></textarea>
-                <button onClick={handleAsk} disabled={isLoading} style={isLoading ? buttonDisabledStyle : buttonStyle}>
+                <button onClick={handleAsk} disabled={isLoading}
+                    style={isLoading ? buttonDisabledStyle : buttonStyle}
+                    onMouseEnter={(e) => {
+                        e.target.style = buttonStyleHover
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style = buttonStyleHover
+                    }}
+                >
                     {isLoading ? ('Loading...') : ('Ask')}
                 </button>
             </div>
