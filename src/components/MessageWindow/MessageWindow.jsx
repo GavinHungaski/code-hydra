@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import loadModel from '../../functions/modelLoader'
+import ReactMarkdown from 'react-markdown'
 import './MessageWindow.css'
 
 const buttonStyle = {
@@ -80,7 +81,7 @@ export default function MessageWindow(props) {
             <div class="chat-output">
                 {messages.map((msg, index) => (
                     <div key={index} style={{ color: msg.color }}>
-                        {msg.text}
+                        <ReactMarkdown>{msg.text}</ReactMarkdown>
                     </div>
                 ))}
             </div>
