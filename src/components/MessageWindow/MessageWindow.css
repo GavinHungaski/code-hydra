@@ -12,6 +12,7 @@ textarea {
     height: 100%;
     overflow: auto;
     margin: 20px auto;
+    padding-left: 15px;
     border: 1px solid #ADD8E6;
     border-radius: 15px;
     font-size: 16px;
