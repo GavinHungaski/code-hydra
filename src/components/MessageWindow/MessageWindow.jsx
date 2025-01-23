@@ -26,7 +26,7 @@ const buttonDisabledStyle = {
     cursor: 'not-allowed'
 }
 
-export default function MessageWindow() {
+export default function MessageWindow(props) {
     const [messages, setMessages] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const questionRef = useRef(null)
@@ -49,7 +49,8 @@ export default function MessageWindow() {
         if (questionText == "") {
             response = "Please ask a question!"
         } else {
-            response = await loadModel('Qwen/Qwen2.5-Coder-32B-Instruct', questionText)
+            console.log(props.selectedModel)
+            response = await loadModel(props.selectedModel, questionText)
         }
         
         console.log(response)

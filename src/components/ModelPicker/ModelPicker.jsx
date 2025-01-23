@@ -1,13 +1,13 @@
 import './ModelPicker.css'
 
-export default function ModelPicker() {
+export default function ModelPicker(props) {
     return (
         <div class="picker-container">
             <h2>Model:</h2>
             <hr />
-            <select>
-                <option>Qwen/Qwen2.5-Coder-32B-Instruct</option>
-                <option>deepseek-ai/DeepSeek-Coder-V2-Instruct</option>
+            <select value={props.selectedModel} onChange={(e) => props.handleModelChange(e.target.value)}>
+                <option value="Qwen/Qwen2.5-Coder-32B-Instruct">Qwen2.5-Coder-32B-Instruct</option>
+                <option value="deepseek-ai/DeepSeek-Coder-V2-Instruct">DeepSeek-Coder-V2-Instruct</option>
             </select>
         </div>
     )
