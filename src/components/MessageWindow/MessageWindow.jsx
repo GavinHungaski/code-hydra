@@ -50,7 +50,7 @@ export default function MessageWindow(props) {
             response = "Please ask a question!"
         } else {
             console.log(props.selectedModel)
-            response = await loadModel(props.selectedModel, questionText)
+            response = await loadModel("Qwen/Qwen2.5-Coder-32B-Instruct", questionText)
         }
         
         console.log(response)
