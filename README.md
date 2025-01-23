@@ -1,5 +1,6 @@
 # Code Hydra
 The best place for AI coding assistance
+![](/)
 
 **Requires a Hugging Face account and api token.**
 
