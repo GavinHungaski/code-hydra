@@ -1,6 +1,6 @@
 # Code Hydra
 The best place for AI coding assistance
-![](/)
+![hydra icon](/public/hydra-icon.ico)
 
 **Requires a Hugging Face account and api token.**
 
